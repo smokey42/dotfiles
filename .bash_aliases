@@ -11,3 +11,6 @@ fi
 alias gst="git status"
 alias grb="git fetch && git rebase origin/master"
 alias gf="git fetch"
+alias ..="cd .."
+alias ...="..;.."
+alias ....="...;.."
