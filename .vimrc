@@ -57,8 +57,8 @@ cmap w!! %!sudo tee > /dev/null %
 " Save and run current file
 map <silent> <F5> <esc>:w<CR><esc>:!./%<CR>
 
-" Toggle pastmode, echoing current status
-map <silent> <F7> :set invnumber invpaste paste?<CR>
+" Toggle copy and pastemode, echoing current status
+map <silent> <F7> :set invnumber invpaste invlist paste?<CR>
 
 " vim-fugitive: git commit
 map <silent> <F12> :Gcommit<CR>
