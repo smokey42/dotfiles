@@ -15,6 +15,9 @@ Bundle 'FuzzyFinder'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'UltiSnips'
+"
+" 256 color scheme
+Bundle 'leo256'
 
 syntax on
 filetype plugin indent on
