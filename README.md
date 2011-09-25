@@ -46,6 +46,8 @@ TODO
 
 Things to look into:
 
+ * http://stackoverflow.com/questions/tagged/eclim
+ * http://eclim.org/guides/headless.html
  * https://code.google.com/p/maven-android-plugin/
  * http://jyro.blogspot.com/2009/05/android-development-with-vim-eclim.html
 
