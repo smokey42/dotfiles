@@ -20,6 +20,18 @@ If you see *.vim/bundle/vundle (untracked content)* in `git status`, this
 is because `BundleInstall` creates the file .vim/bundle/vundle/doc/tags. Just
 ignore the warning.
 
+Using pyflakes with vim
+-----------------------
+
+The Installation routine can not install the pyflakes Python module systemwide.
+For simplicity's sake I just did
+
+    cd ~/.vim/bundle/pyflakes
+    sudo python setup.py install
+
+I'll later try to automate this so that pyflakes-vim will find the pyflakes
+module without having to install it. But that's low prio.
+
 Using vim with Eclipse
 ----------------------
 
