@@ -6,20 +6,39 @@ call vundle#rc()
 
 " Vundle Bundle manager. Great stuff.
 " https://github.com/gmarik/vundle
+"
+" If there is a slash in the bundle-name
+" it automatically installs from GitHub.
 Bundle 'gmarik/vundle'
 
-Bundle 'L9'
+" Tree navigator thingie
 Bundle 'The-NERD-tree'
+Bundle 'L9'
+
 Bundle 'FuzzyFinder'
 
+" Graphing your undo tree in style
+Bundle 'Gundo'
+
+" The best git plugin of the world
 Bundle 'tpope/vim-fugitive'
+
+" Language specific stuff
+Bundle 'Jinja'
 Bundle 'kevinw/pyflakes-vim'
+Bundle 'sukima/xmledit'
+Bundle 'ervandew/supertab'
+
+" Textmate like snippets. Handy.
 Bundle 'UltiSnips'
-"
+
 " 256 color scheme
+" => needs the ncurses-term package under Ubuntu
 Bundle 'leo256'
 
 syntax on
+color leo
+
 filetype plugin indent on
 
 set tabstop=4
@@ -33,15 +52,11 @@ set noerrorbells
 set smartindent
 set ruler
 set number
+set ttyfast
 set autoread
 set more
-set ttyfast
 set cursorline
 set magic
-
-" Color scheme with 256 colors
-" => needs the ncurses-term package under Ubuntu
-color leo
 
 " Thank you FunnyMan3595
 " Visualize tabs and trailing whitespaces
@@ -49,8 +64,6 @@ color leo
 set list
 set lcs=tab:»·   "show tabs
 set lcs+=trail:· "show trailing spaces
-
-set completefunc=VjdeCompleteFun0
 
 " Will allow you to use :w!! to write to a file using sudo if you forgot to sudo
 " vim file (it will prompt for sudo password when writing)
