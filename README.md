@@ -49,7 +49,7 @@ Problems I ran into
    can read it and the file belongs to a project that Eclipse knows about.
  * You must set your Eclipse workspace directory in `~/.eclimrc`.
 
-       osgi.instance.area.default=@user.home/workspacedirectory
+        osgi.instance.area.default=@user.home/workspacedirectory
 
    If you don't do that, code completion will not work.
 
