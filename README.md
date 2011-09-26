@@ -47,9 +47,16 @@ Problems I ran into
  * It took a while to figure out that eclim only can do code completion when
    Eclipse knows about the file you are working on, the file is saved so Eclipse
    can read it and the file belongs to a project that Eclipse knows about.
+ * You must set your Eclipse workspace directory in `~/.eclimrc`.
+
+       osgi.instance.area.default=@user.home/workspacedirectory
+
+   If you don't do that, code completion will not work.
 
 TODO
 ----
+
+ * Figure out how to make XML code completion in Android projects working.
 
 Things to look into:
 
