@@ -41,6 +41,17 @@ Start it with something like `java -jar eclim_1.7.2.jar` and click through
 the following wizard. When you're ready it will download and compile
 additional stuff.
 
+Problems I ran into
+-------------------
+
+ * It took a while to figure out that eclim only can do code completion when
+   Eclipse knows about the file you are working on, the file is saved so Eclipse
+   can read it and the file belongs to a project that Eclipse knows about.
+ * After figuring this out I got the following error:
+   The type java.lang.Object cannot be resolved. It is indirectly referenced
+   from required .class files
+   I haven't figured that one out yet.
+
 TODO
 ----
 
