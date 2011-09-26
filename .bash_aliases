@@ -1,5 +1,31 @@
 #!/bin/bash
 
+c_cyan=`tput setaf 6`
+c_red=`tput setaf 1`
+c_green=`tput setaf 2`
+c_sgr0=`tput sgr0`
+
+parse_git_branch() {
+    if git rev-parse --git-dir >/dev/null 2>&1
+    then
+            gitver=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
+            if git diff --ignore-submodules=dirty --exit-code --quiet 2>/dev/null >&2
+            then
+                if git diff --ignore-submodules=dirty --exit-code --cached --quiet 2>/dev/null >&2
+                then
+                    gitver=${c_green}$gitver${c_sgr0}
+                else
+                    gitver=${c_cyan}'!'$gitver${c_sgr0}
+                fi
+            else
+                    gitver=${c_red}'!'$gitver${c_sgr0}
+            fi
+    else
+            return 0
+    fi
+    echo " $gitver"
+}
+
 git_version_string=`git --version`
 # remove everything except the version number
 GIT_VERSION=${git_version_string##* }
@@ -37,3 +63,20 @@ alias l='ls -CF'
 alias ..="cd .."
 alias ...="..;.."
 alias ....="...;.."
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$(parse_git_branch)\$ "
+
+# Taken from .bashrc
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+    xterm*|rxvt*)
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+        ;;
+    *)
+        ;;
+esac
