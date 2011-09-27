@@ -80,3 +80,30 @@ case "$TERM" in
     *)
         ;;
 esac
+
+# Make some convenient shortcuts for sshing into certain servers
+#
+# Format of .ssh/hostnames is
+#
+#   hostname1  127.0.0.1
+#   hostname2  127.0.1.0
+#   hostname3  127.0.1.1
+#   hostname4  127.1.0.0
+#
+# and so on
+
+if [ -f ~/.ssh/hostnames ]; then
+
+    # IFS = Newline
+    IFS="
+"
+
+    for line in `cat ~/.ssh/hostnames`; do
+        IFS=" "
+        fields=($line)
+        hostname=${fields[0]}
+        ipv4=${fields[1]}
+        alias $hostname="ssh $ipv4"
+    done
+
+fi
