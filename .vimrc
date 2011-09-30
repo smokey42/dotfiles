@@ -25,9 +25,16 @@ Bundle 'tpope/vim-fugitive'
 
 " Language specific stuff
 Bundle 'Jinja'
-Bundle 'kevinw/pyflakes-vim'
 Bundle 'sukima/xmledit'
 Bundle 'ervandew/supertab'
+
+" Supertab settings
+" " supertab + eclim == java win
+let g:SuperTabDefaultCompletionTypeDiscovery = [
+\ "&completefunc:<c-x><c-u>",
+\ "&omnifunc:<c-x><c-o>",
+\ ]
+let g:SuperTabLongestHighlight = 1
 
 " Textmate like snippets. Handy.
 Bundle 'UltiSnips'
