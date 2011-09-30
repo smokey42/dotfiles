@@ -36,10 +36,17 @@ Using vim with Eclipse
 ----------------------
 
 To use `eclim` you need to visit [this page](http://eclim.org/download.html)
-and download the installer first.
-Start it with something like `java -jar eclim_1.7.2.jar` and click through
-the following wizard. When you're ready it will download and compile
-additional stuff.
+and download the installer first. Executing the following command will performa
+an unattended installation of eclim.
+
+    java \
+        -Declipse.home=$HOME/bin/eclipse-installation \
+        -Dvim.files=$HOME/.vim \
+        -DfeatureList.ant=true \
+        -DfeatureList.jdt=true \
+        -DfeatureList.maven=true \
+        -DfeatureList.python=true \
+        -jar eclim_1.7.2.jar install
 
 Problems I ran into
 -------------------
@@ -47,24 +54,16 @@ Problems I ran into
  * It took a while to figure out that eclim only can do code completion when
    Eclipse knows about the file you are working on, the file is saved so Eclipse
    can read it and the file belongs to a project that Eclipse knows about.
- * You must set your Eclipse workspace directory in `~/.eclimrc`.
+ * If you have a non-standard workspace directory (as I have) you must set your
+   Eclipse workspace directory in `~/.eclimrc`.
 
         osgi.instance.area.default=@user.home/workspacedirectory
-
    If you don't do that, code completion will not work.
 
-TODO
-----
+Further reading
+---------------
 
- * Figure out how to make XML code completion in Android projects working.
-
-Things to look into:
-
+ * http://pbrisbin.com/posts/raw_audio
  * http://stackoverflow.com/questions/tagged/eclim
  * http://eclim.org/guides/headless.html
- * https://code.google.com/p/maven-android-plugin/
  * http://jyro.blogspot.com/2009/05/android-development-with-vim-eclim.html
-
-Things to solve:
-
- * Setting `JAVA_HOME` correctly for Eclim.
