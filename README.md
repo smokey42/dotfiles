@@ -9,9 +9,8 @@ How to use it
     cd ~
     git init
     git remote add origin git://github.com/smokey42/dotfiles.git
-    git pull
-    git submodule init
-    git submodule update
+    git pull origin master
+    git submodule update --init
     vim -c BundleInstall -c qa
 
 After the last command, all referenced *vim* plugins will be installed.
@@ -19,18 +18,6 @@ After the last command, all referenced *vim* plugins will be installed.
 If you see *.vim/bundle/vundle (untracked content)* in `git status`, this
 is because `BundleInstall` creates the file .vim/bundle/vundle/doc/tags. Just
 ignore the warning.
-
-Using pyflakes with vim
------------------------
-
-The Installation routine can not install the pyflakes Python module systemwide.
-For simplicity's sake I just did
-
-    cd ~/.vim/bundle/pyflakes
-    sudo python setup.py install
-
-I'll later try to automate this so that pyflakes-vim will find the pyflakes
-module without having to install it. But that's low prio.
 
 Using vim with Eclipse
 ----------------------
@@ -47,6 +34,10 @@ an unattended installation of eclim.
         -DfeatureList.maven=true \
         -DfeatureList.python=true \
         -jar eclim_1.7.2.jar install
+
+Interesting to Python programmers: Eclim also includes [rope](http://rope.sourceforge.net/),
+of which I found the Integration to be of superiour quality when compared against pyflakes.
+Especially on 512kB large (don't ask!) Python files.
 
 Problems I ran into
 -------------------
