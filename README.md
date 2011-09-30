@@ -22,7 +22,7 @@ ignore the warning.
 Using vim with Eclipse
 ----------------------
 
-To use `eclim` you need to visit [this page](http://eclim.org/download.html)
+To use `eclim` you need to visit [Eclim's download page](http://eclim.org/download.html)
 and download the installer first. Executing the following command will performa
 an unattended installation of eclim.
 
