@@ -22,6 +22,7 @@ Bundle 'Gundo'
 
 " The best git plugin of the world
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
 
 " Language specific stuff
 Bundle 'Jinja'
