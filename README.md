@@ -59,6 +59,11 @@ Problems I ran into
         osgi.instance.area.default=@user.home/workspacedirectory
    If you don't do that, code completion will not work.
 
+I really should try that
+------------------------
+
+ * http://jeetworks.org/node/89
+
 Further reading
 ---------------
 
