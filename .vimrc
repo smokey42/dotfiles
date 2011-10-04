@@ -1,4 +1,7 @@
 set nocompatible
+
+
+
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
@@ -10,6 +13,8 @@ call vundle#rc()
 " If there is a slash in the bundle-name
 " it automatically installs from GitHub.
 Bundle 'gmarik/vundle'
+
+Bundle 'openssl.vim'
 
 " Tree navigator thingie
 Bundle 'The-NERD-tree'
@@ -48,7 +53,6 @@ Bundle 'leo256'
 
 syntax on
 color leo
-
 filetype plugin indent on
 
 set tabstop=4
@@ -68,12 +72,24 @@ set more
 set cursorline
 set magic
 
-" Thank you FunnyMan3595
 " Visualize tabs and trailing whitespaces
 " http://www.reddit.com/r/programming/comments/9wlb7/proggitors_do_you_like_the_idea_of_indented/c0esam1
 set list
 set lcs=tab:»·   "show tabs
 set lcs+=trail:· "show trailing spaces
+
+" Starting from vim 7.3 undo can be persisted across sessions
+" http://www.reddit.com/r/vim/comments/kz84u/what_are_some_simple_yet_mindblowing_tweaks_to/c2onmqe
+if has("persistent_undo")
+    set undodir=~/.vim/undodir
+    set undofile
+endif
+
+" Leave insert-mode after 15 seconds of no input.
+" http://www.reddit.com/r/vim/comments/kz84u/what_are_some_simple_yet_mindblowing_tweaks_to/c2ol6wd
+au CursorHoldI * stopinsert
+au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
+au InsertLeave * let &updatetime=updaterestore
 
 " Will allow you to use :w!! to write to a file using sudo if you forgot to sudo
 " vim file (it will prompt for sudo password when writing)
