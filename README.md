@@ -19,6 +19,14 @@ If you see *.vim/bundle/vundle (untracked content)* in `git status`, this
 is because `BundleInstall` creates the file .vim/bundle/vundle/doc/tags. Just
 ignore the warning.
 
+Upgrading git-based Bundles
+---------------------------
+
+This is actually pretty easy. Just run the following command and all git-based
+bundles will be updated to the current version of their origin.
+
+    awk -F/ '/Bundle/ && /\// { print "cd ~/.vim/bundle/" $2 "; git pull" }' .vimrc|sed "s/'//"|bash
+
 Using vim with Eclipse
 ----------------------
 
