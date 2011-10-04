@@ -37,6 +37,8 @@ let g:SuperTabDefaultCompletionTypeDiscovery = [
 \ ]
 let g:SuperTabLongestHighlight = 1
 
+Bundle 'pythoncomplete'
+
 " Textmate like snippets. Handy.
 Bundle 'UltiSnips'
 
