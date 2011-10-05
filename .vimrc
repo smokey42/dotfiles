@@ -89,6 +89,9 @@ au CursorHoldI * stopinsert
 au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
 
+" Breaking lines with \[enter] without having to go to insert mode (myself).
+nmap <leader><cr> i<cr><Esc>
+
 " Will allow you to use :w!! to write to a file using sudo if you forgot to sudo
 " vim file (it will prompt for sudo password when writing)
 " http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks/96492#96492
@@ -98,7 +101,9 @@ cmap w!! %!sudo tee > /dev/null %
 map <silent> <F5> <esc>:w<CR><esc>:!./%<CR>
 
 " Toggle copy and pastemode, echoing current status
-map <silent> <F7> :set invnumber invpaste invlist paste?<CR>
+map <silent> <C-F7> :only<CR>:set invnumber invlist number?<CR>
+map <silent> <F7> :set invpaste paste?<CR>i
+
 
 " vim-fugitive: git commit
 map <silent> <F12> :Gcommit<CR>
