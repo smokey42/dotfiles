@@ -16,9 +16,11 @@ Bundle 'openssl.vim'
 
 " Tree navigator thingie
 Bundle 'The-NERD-tree'
-Bundle 'L9'
 
-Bundle 'FuzzyFinder'
+if version > 710
+    Bundle 'L9'
+    Bundle 'FuzzyFinder'
+endif
 
 " Graphing your undo tree in style
 Bundle 'Gundo'
