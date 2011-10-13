@@ -53,9 +53,18 @@ Bundle 'UltiSnips'
 " 256 color schemes needs the ncurses-term package under Ubuntu
 Bundle 'leo256'
 Bundle 'borland.vim'
+Bundle 'altercation/vim-colors-solarized'
 
 syntax on
-color leo
+
+let g:solarized_termcolors=256
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+set background=dark
+color solarized
+
+" color leo
+
 filetype plugin indent on
 
 set tabstop=4
