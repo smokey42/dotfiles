@@ -12,6 +12,7 @@ call vundle#rc()
 " it automatically installs from GitHub.
 Bundle 'gmarik/vundle'
 
+" Edit encrypted files
 Bundle 'openssl.vim'
 
 " Tree navigator thingie
@@ -48,9 +49,10 @@ Bundle 'lighttpd-syntax'
 " Textmate like snippets. Handy.
 Bundle 'UltiSnips'
 
-" 256 color scheme
-" => needs the ncurses-term package under Ubuntu
+" Colors
+" 256 color schemes needs the ncurses-term package under Ubuntu
 Bundle 'leo256'
+Bundle 'borland.vim'
 
 syntax on
 color leo
