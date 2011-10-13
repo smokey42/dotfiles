@@ -26,7 +26,7 @@ endif
 " Graphing your undo tree in style
 Bundle 'Gundo'
 
-" The best git plugin of the world
+Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 
