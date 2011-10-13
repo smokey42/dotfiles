@@ -18,7 +18,7 @@ Bundle 'openssl.vim'
 " Tree navigator thingie
 Bundle 'The-NERD-tree'
 
-if version > 710
+if v:version >= 701
     Bundle 'L9'
     Bundle 'FuzzyFinder'
 endif
