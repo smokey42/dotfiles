@@ -44,7 +44,7 @@ let g:SuperTabDefaultCompletionTypeDiscovery = [
 let g:SuperTabLongestHighlight = 1
 
 Bundle 'pythoncomplete'
-Bundle 'lighttpd-syntax'
+Bundle 'smokey42/lighttpd-syntax'
 
 " Textmate like snippets. Handy.
 Bundle 'UltiSnips'
