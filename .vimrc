@@ -45,6 +45,7 @@ let g:SuperTabLongestHighlight = 1
 
 Bundle 'pythoncomplete'
 Bundle 'smokey42/lighttpd-syntax'
+Bundle 'vcl-vim-plugin'
 
 " Textmate like snippets. Handy.
 Bundle 'UltiSnips'
