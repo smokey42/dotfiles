@@ -58,13 +58,13 @@ Bundle 'altercation/vim-colors-solarized'
 
 syntax on
 
-let g:solarized_termcolors=256
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-set background=dark
-color solarized
+"let g:solarized_termcolors=256
+"let g:solarized_contrast="normal"
+"let g:solarized_visibility="normal"
+"set background=dark
+"color solarized
 
-" color leo
+color leo
 
 filetype plugin indent on
 
