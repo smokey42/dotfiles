@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Kombiniere alle Imports in Python-Programmen
+#
+# Benutzung innerhalb von vim:
+#
+# Import im visual-mode markieren, und durch !combineimports filtern
+#
+egrep -v "<<<<<|>>>>>|====="|\
+sed '{ s/,/\n/g; s/[() ]//g; }' |\
+sort -u |\
+sed -e :a -e '$!N; s/\n/, /; ta; s/^, //; s/$/)/' |\
+fold -s |\
+sed 's/\s$//; s/^/    /'

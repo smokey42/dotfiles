@@ -1,1 +1,13 @@
-[a-zA-Z0-9]*
+*
+!README.md
+!bin*
+!bin/*
+!.vim*
+!.vim/*
+!.gitignore
+!.gitmodules
+!.bash_aliases
+!.bashrc
+.gitignore
+.viminfo
+.vimrcold

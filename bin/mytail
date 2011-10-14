@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Macht einen tail(1) auf das MySQL Logfile, aber aktiviert es zuvor
+# und deaktiviert es danach wieder. Somit verbraucht man keinen un-
+# nötigen Speicherplatz.
+
+MYSQL_LOG=/var/log/mysql/mysql.log
+
+echo "Enabling log"
+cat <<EOF | mysql -u root
+SET GLOBAL general_log = 'ON', general_log_file='$MYSQL_LOG';
+EOF
+
+disable_log() {
+    echo "Disabling log"
+cat <<EOF | mysql -u root
+SET GLOBAL general_log = 'OFF';
+EOF
+}
+
+trap disable_log SIGINT
+
+tail -f $MYSQL_LOG
