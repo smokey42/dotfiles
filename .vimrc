@@ -26,14 +26,32 @@ endif
 " Graphing your undo tree in style
 Bundle 'Gundo'
 
-Bundle 'tpope/vim-markdown'
+" Version control system helpers.
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 
-" Language specific stuff
+" Syntax checking.
+Bundle 'scrooloose/syntastic'
+
+" Use the |:sign| interface to mark syntax errors
+let g:syntastic_enable_signs=1
+
+" When set to 1 the error window will be automatically
+" opened when errors are detected, and closed when none
+" are detected.
+let g:syntastic_auto_loc_list=1
+
+" Syntax highlighting.
+Bundle 'tpope/vim-markdown'
 Bundle 'Jinja'
 Bundle 'sukima/xmledit'
+Bundle 'smokey42/lighttpd-syntax'
+
+" Edit helpers.
 Bundle 'ervandew/supertab'
+Bundle 'pythoncomplete'
+Bundle 'UltiSnips'
+Bundle 'SQLUtilities'
 
 " Supertab settings
 " " supertab + eclim == java win
@@ -42,13 +60,6 @@ let g:SuperTabDefaultCompletionTypeDiscovery = [
 \ "&omnifunc:<c-x><c-o>",
 \ ]
 let g:SuperTabLongestHighlight = 1
-
-Bundle 'pythoncomplete'
-Bundle 'smokey42/lighttpd-syntax'
-Bundle 'vcl-vim-plugin'
-
-" Textmate like snippets. Handy.
-Bundle 'UltiSnips'
 
 " Colors
 " 256 color schemes needs the ncurses-term package under Ubuntu
