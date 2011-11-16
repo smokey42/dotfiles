@@ -41,6 +41,7 @@ if [ -f ~/bin/python-startup.py ]; then
     if [ -d /var/www/production/releases ]; then
         alias prod="source /var/www/production/environment/bin/activate; cd /var/www/production/releases/current"
     fi
+    alias pup="source /var/www/dev/environment/bin/activate; cd ~/puppet"
 fi
 
 # Comparing dottet version numbers
@@ -55,6 +56,7 @@ fi
 
 alias grb="git fetch && git rebase origin/master"
 alias gf="git fetch"
+alias gd="git diff"
 
 alias ll='ls -l'
 alias la='ls -A'
