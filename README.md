@@ -62,6 +62,8 @@ Problems I ran into
 I really should try that
 ------------------------
 
+ * When triggering `undo` in a pristine file, a splitscreen should show older
+   versions of the same code pulled from the git repository.
  * http://jeetworks.org/node/89
 
 Further reading
