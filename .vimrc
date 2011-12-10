@@ -43,6 +43,7 @@ let g:syntastic_auto_loc_list=1
 
 " Syntax highlighting.
 Bundle 'tpope/vim-markdown'
+Bundle 'adimit/prolog.vim'
 Bundle 'Jinja'
 Bundle 'sukima/xmledit'
 Bundle 'smokey42/lighttpd-syntax'
