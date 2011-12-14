@@ -42,11 +42,14 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
 " Syntax highlighting.
-Bundle 'tpope/vim-markdown'
 Bundle 'adimit/prolog.vim'
 Bundle 'Jinja'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-haml'
+Bundle 'skammer/vim-css-color'
 Bundle 'sukima/xmledit'
 Bundle 'smokey42/lighttpd-syntax'
+Bundle 'altercation/vim-colors-solarized'
 
 " Edit helpers.
 Bundle 'ervandew/supertab'
@@ -66,7 +69,6 @@ let g:SuperTabLongestHighlight = 1
 " 256 color schemes needs the ncurses-term package under Ubuntu
 Bundle 'leo256'
 Bundle 'borland.vim'
-Bundle 'altercation/vim-colors-solarized'
 
 syntax on
 
@@ -77,6 +79,9 @@ syntax on
 "color solarized
 
 color leo
+
+" Cursorline aus.
+set cursorline!
 
 filetype plugin indent on
 
