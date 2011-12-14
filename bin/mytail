@@ -4,7 +4,7 @@
 # und deaktiviert es danach wieder. Somit verbraucht man keinen un-
 # nötigen Speicherplatz.
 
-MYSQL_LOG=/var/log/mysql/mysql.log
+MYSQL_LOG=$HOME/mysql/mysql.log
 
 echo "Enabling log"
 cat <<EOF | mysql -u root
