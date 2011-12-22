@@ -39,7 +39,7 @@ let g:syntastic_enable_signs=1
 " When set to 1 the error window will be automatically
 " opened when errors are detected, and closed when none
 " are detected.
-let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_loc_list=0
 
 " Syntax highlighting.
 Bundle 'adimit/prolog.vim'
