@@ -50,6 +50,7 @@ Bundle 'skammer/vim-css-color'
 Bundle 'sukima/xmledit'
 Bundle 'smokey42/lighttpd-syntax'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'rantenki/vim-openscad'
 
 " Edit helpers.
 Bundle 'ervandew/supertab'
@@ -117,9 +118,11 @@ endif
 
 " Leave insert-mode after 15 seconds of no input.
 " http://www.reddit.com/r/vim/comments/kz84u/what_are_some_simple_yet_mindblowing_tweaks_to/c2ol6wd
-au CursorHoldI * stopinsert
-au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
-au InsertLeave * let &updatetime=updaterestore
+"
+" Muss in die einzelnen Filetypes, da ich so keine Emails schreiben kann. :)
+" au CursorHoldI * stopinsert
+" au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
+" au InsertLeave * let &updatetime=updaterestore
 
 " Breaking lines with \[enter] without having to go to insert mode (myself).
 nmap <leader><cr> i<cr><Esc>
