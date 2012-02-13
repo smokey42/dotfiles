@@ -116,6 +116,13 @@ if has("persistent_undo")
     set undofile
 endif
 
+" Automatically re-indent on paste
+" http://www.reddit.com/r/vim/comments/pkwkm/awesome_little_tweak_automatically_reindent_on/
+nnoremap <leader>p p
+nnoremap <leader>P P
+nnoremap p p'[v']=
+nnoremap P P'[v']=
+
 " Leave insert-mode after 15 seconds of no input.
 " http://www.reddit.com/r/vim/comments/kz84u/what_are_some_simple_yet_mindblowing_tweaks_to/c2ol6wd
 "
