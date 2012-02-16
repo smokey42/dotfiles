@@ -57,6 +57,7 @@ fi
 alias grb="git fetch && git rebase origin/master"
 alias gf="git fetch"
 alias gd="git diff"
+alias gdsm="git diff --stat origin/master"
 
 alias ll='ls -l'
 alias la='ls -A'
