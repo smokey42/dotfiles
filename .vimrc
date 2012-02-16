@@ -43,14 +43,15 @@ let g:syntastic_auto_loc_list=0
 
 " Syntax highlighting.
 Bundle 'adimit/prolog.vim'
-Bundle 'Jinja'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-haml'
-Bundle 'skammer/vim-css-color'
-Bundle 'sukima/xmledit'
-Bundle 'smokey42/lighttpd-syntax'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'Jinja'
+Bundle 'leshill/vim-json'
 Bundle 'rantenki/vim-openscad'
+Bundle 'skammer/vim-css-color'
+Bundle 'smokey42/lighttpd-syntax'
+Bundle 'sukima/xmledit'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-markdown'
 
 " Edit helpers.
 Bundle 'ervandew/supertab'
