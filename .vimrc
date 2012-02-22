@@ -147,9 +147,18 @@ map <silent> <F5> <esc>:w<CR><esc>:!./%<CR>
 map <silent> <C-F7> :only<CR>:set invnumber invlist number?<CR>
 map <silent> <F7> :set invpaste paste?<CR>i
 
-
 " vim-fugitive: git commit
 map <silent> <F12> :Gcommit<CR>
 
 " Reload changes to .vimrc automatically
 autocmd BufWritePost  ~/.vimrc source ~/.vimrc
+
+" Stuff taken from
+" https://github.com/r00k/dotfiles/blob/master/vimrc
+
+" Bind :Q to :q
+command! Q q
+
+" Disable that goddamn 'Entering Ex mode. Type 'visual' to go to Normal mode.'
+" that I trigger 40x a day.
+map Q <Nop>
