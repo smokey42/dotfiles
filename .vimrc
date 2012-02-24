@@ -156,8 +156,8 @@ autocmd BufWritePost  ~/.vimrc source ~/.vimrc
 " Stuff taken from
 " https://github.com/r00k/dotfiles/blob/master/vimrc
 
-" Bind :Q to :q
 command! Q q
+command! W w
 
 " Disable that goddamn 'Entering Ex mode. Type 'visual' to go to Normal mode.'
 " that I trigger 40x a day.
