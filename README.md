@@ -69,6 +69,7 @@ I really should try that
 Further reading
 ---------------
 
+ * http://sontek.net/turning-vim-into-a-modern-python-ide
  * http://pbrisbin.com/posts/raw_audio
  * http://stackoverflow.com/questions/tagged/eclim
  * http://eclim.org/guides/headless.html
