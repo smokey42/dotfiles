@@ -1,0 +1,23 @@
+[user]
+    email = christoph.rauch@gmail.com
+    name = Christoph Rauch
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
+    lgv = !git log -p -40 | vim - -R -c 'set foldmethod=syntax'
+
+[status]
+    ignoreSubmodules = dirty
+
+[diff]
+    ignoreSubmodules = dirty
