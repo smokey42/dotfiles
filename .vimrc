@@ -30,8 +30,9 @@ Bundle 'Gundo'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 
-" Syntax checking.
+" Other helpers
 Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdcommenter'
 
 " Use the |:sign| interface to mark syntax errors
 let g:syntastic_enable_signs=1
