@@ -75,3 +75,4 @@ Further reading
  * http://eclim.org/guides/headless.html
  * http://jyro.blogspot.com/2009/05/android-development-with-vim-eclim.html
  * http://blog.ultimalatet.ch/2010/10/android-devel-using-eclim.html
+ * http://www.reddit.com/r/vim
