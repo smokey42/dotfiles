@@ -51,3 +51,7 @@ fi
 function wiki() {
     dig +short txt $1.wp.dg.cx
 }
+
+export WORKON_HOME=~/Projekte
+mkdir -p $WORKON_HOME
+source /usr/local/bin/virtualenvwrapper.sh
