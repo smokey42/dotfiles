@@ -46,6 +46,7 @@ let g:syntastic_auto_loc_list=0
 Bundle 'adimit/prolog.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Jinja'
+Bundle 'chase/nginx.vim'
 Bundle 'leshill/vim-json'
 Bundle 'rantenki/vim-openscad'
 Bundle 'skammer/vim-css-color'
