@@ -33,16 +33,18 @@ GIT_VERSION=${git_version_string##* }
 # Needs ncurses-term under Ubuntu
 export TERM=xterm-256color
 
-if [ -f ~/bin/python-startup.py ]; then
-    export PYTHONSTARTUP=~/bin/python-startup.py
-    if [ -d /var/www/dev/repo ]; then
-        alias dev="source /var/www/dev/environment/bin/activate; cd /var/www/dev/repo"
-    fi
-    if [ -d /var/www/production/releases ]; then
-        alias prod="source /var/www/production/environment/bin/activate; cd /var/www/production/releases/current"
-    fi
-    alias pup="source /var/www/dev/environment/bin/activate; cd ~/puppet"
-fi
+#if [ -f ~/bin/python-startup.py ]; then
+#    export PYTHONSTARTUP=~/bin/python-startup.py
+#    if [ -d /var/www/dev/repo ]; then
+#        alias dev="source /var/www/dev/environment/bin/activate; cd /var/www/dev/repo"
+#    fi
+#    if [ -d /var/www/production/releases ]; then
+#        alias prod="source /var/www/production/environment/bin/activate; cd /var/www/production/releases/current"
+#    fi
+#    alias pup="source /var/www/dev/environment/bin/activate; cd ~/puppet"
+#fi
+
+alias dev="workon core; cd src/stylightcore/src/stylight/"
 
 # Comparing dottet version numbers
 # see: http://bkhome.org/blog/?viewDetailed=02199

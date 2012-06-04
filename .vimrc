@@ -161,6 +161,8 @@ autocmd BufWritePost  ~/.vimrc source ~/.vimrc
 command! Q q
 command! W w
 
+let g:HtmlDjangoUserBodyElements = [ ['block', 'end'] ]
+
 " Disable that goddamn 'Entering Ex mode. Type 'visual' to go to Normal mode.'
 " that I trigger 40x a day.
 map Q <Nop>
