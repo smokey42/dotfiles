@@ -36,6 +36,8 @@ Bundle 'scrooloose/nerdcommenter'
 
 " Use the |:sign| interface to mark syntax errors
 let g:syntastic_enable_signs=1
+let g:syntastic_python_checker='flake8'
+let g:syntastic_python_checker_args='--max-complexity=10'
 
 " When set to 1 the error window will be automatically
 " opened when errors are detected, and closed when none
@@ -46,6 +48,7 @@ let g:syntastic_auto_loc_list=0
 Bundle 'adimit/prolog.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Jinja'
+Bundle "Smart-Tabs"
 Bundle 'chase/nginx.vim'
 Bundle 'leshill/vim-json'
 Bundle 'rantenki/vim-openscad'
@@ -60,6 +63,12 @@ Bundle 'ervandew/supertab'
 Bundle 'pythoncomplete'
 Bundle 'UltiSnips'
 Bundle 'SQLUtilities'
+
+" Ack search plugin
+Bundle 'mileszs/ack.vim'
+Bundle 'jordansissel/vim-ackmore'
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
 
 " Supertab settings
 " " supertab + eclim == java win
@@ -84,9 +93,6 @@ syntax on
 
 color leo
 
-" Cursorline aus.
-set cursorline!
-
 filetype plugin indent on
 
 set tabstop=4
@@ -95,7 +101,6 @@ set shiftwidth=4
 set textwidth=80
 set smarttab
 set expandtab
-set novisualbell
 set noerrorbells
 set smartindent
 set ruler
@@ -103,7 +108,7 @@ set number
 set ttyfast
 set autoread
 set more
-set cursorline
+set cursorline!
 set magic
 
 " Visualize tabs and trailing whitespaces
@@ -111,6 +116,26 @@ set magic
 set list
 set lcs=tab:»·   "show tabs
 set lcs+=trail:· "show trailing spaces
+
+hi User1 ctermfg=196 guifg=#eea040 guibg=#222222
+hi User2 ctermfg=75 guifg=#dd3333 guibg=#222222
+hi User3 guifg=#ff66ff guibg=#222222
+hi User4 ctermfg=239 guifg=#a0ee40 guibg=#222222
+hi User5 guifg=#eeee40 guibg=#222222
+
+" Statusline
+" https://github.com/pengwynn/dotfiles/blob/master/vim/vimrc.symlink#L160
+set statusline=                                     " Override default
+set statusline+=%1*%{fugitive#statusline()[4:-2]}%* " Show fugitive git info
+set statusline+=%2*\ %f\ %m\ %r%*                   " Show filename/path
+set statusline+=%3*%=%*                             " Set right-side status info after this line
+set statusline+=%4*%l/%L:%v%*                       " Set <line number>/<total lines>:<column>
+set statusline+=%5*\ %*                             " Set ending space
+
+
+set novisualbell!
+
+set laststatus=2
 
 " Starting from vim 7.3 undo can be persisted across sessions
 " http://www.reddit.com/r/vim/comments/kz84u/what_are_some_simple_yet_mindblowing_tweaks_to/c2onmqe
@@ -121,10 +146,10 @@ endif
 
 " Automatically re-indent on paste
 " http://www.reddit.com/r/vim/comments/pkwkm/awesome_little_tweak_automatically_reindent_on/
-nnoremap <leader>p p
-nnoremap <leader>P P
-nnoremap p p'[v']=
-nnoremap P P'[v']=
+"nnoremap <leader>p p
+"nnoremap <leader>P P
+"nnoremap p p'[v']=
+"nnoremap P P'[v']=
 
 " Leave insert-mode after 15 seconds of no input.
 " http://www.reddit.com/r/vim/comments/kz84u/what_are_some_simple_yet_mindblowing_tweaks_to/c2ol6wd
@@ -166,3 +191,4 @@ let g:HtmlDjangoUserBodyElements = [ ['block', 'end'] ]
 " Disable that goddamn 'Entering Ex mode. Type 'visual' to go to Normal mode.'
 " that I trigger 40x a day.
 map Q <Nop>
+let loaded_matchparen = 1
