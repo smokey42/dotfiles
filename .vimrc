@@ -59,6 +59,7 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 
 " Edit helpers.
+Bundle 'myusuf3/numbers.vim'
 Bundle 'ervandew/supertab'
 Bundle 'pythoncomplete'
 Bundle 'UltiSnips'
@@ -106,7 +107,7 @@ set expandtab
 set noerrorbells
 set smartindent
 set ruler
-set number
+set relativenumber
 set ttyfast
 set autoread
 set more
