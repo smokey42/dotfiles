@@ -64,6 +64,8 @@ Bundle 'pythoncomplete'
 Bundle 'UltiSnips'
 Bundle 'SQLUtilities'
 
+let g:UltiSnipsSnippetDirectories=["snippets"]
+
 " Ack search plugin
 Bundle 'mileszs/ack.vim'
 Bundle 'jordansissel/vim-ackmore'
