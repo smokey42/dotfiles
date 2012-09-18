@@ -1,4 +1,29 @@
 snippet nose "nose testing" b
 import nose
-nose.runmodule(argv=['-vv', '--with-doctest'])
+nose.runmodule(argv=[${1:'-vv', '--with-doctest'}])
+endsnippet
+
+snippet op.create_table "alembic create_table" !b
+op.create_table(
+    '${1:tablename}',
+    Column('a_id', Integer, primary_key=True),
+    $2
+)
+endsnippet
+
+snippet create_drop "alembic table migration" b
+def upgrade():
+    op.create_table(
+        '${1:tablename}',
+        Column('a_id', Integer, primary_key=True),
+        $2
+    )
+
+
+def downgrade():
+    op.drop_table('$1')
+endsnippet
+
+snippet Column "alembic migration column" !b
+Column('$1', ${2:Integer}),
 endsnippet
