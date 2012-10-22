@@ -30,6 +30,14 @@ Bundle 'Gundo'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 
+" Completion
+Bundle 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot = 0
+let g:jedi#use_tabs_not_buffers = 0
+
+Bundle 'ervandew/supertab'
+let g:SuperTabLongestHighlight = 1
+
 " Other helpers
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
@@ -60,8 +68,7 @@ Bundle 'tpope/vim-markdown'
 
 " Edit helpers.
 Bundle 'myusuf3/numbers.vim'
-Bundle 'ervandew/supertab'
-Bundle 'pythoncomplete'
+
 Bundle 'UltiSnips'
 Bundle 'SQLUtilities'
 
@@ -73,13 +80,6 @@ Bundle 'jordansissel/vim-ackmore'
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 
-" Supertab settings
-" " supertab + eclim == java win
-let g:SuperTabDefaultCompletionTypeDiscovery = [
-\ "&completefunc:<c-x><c-u>",
-\ "&omnifunc:<c-x><c-o>",
-\ ]
-let g:SuperTabLongestHighlight = 1
 
 " Colors
 " 256 color schemes needs the ncurses-term package under Ubuntu
