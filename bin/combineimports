@@ -10,5 +10,5 @@ egrep -v "<<<<<|>>>>>|====="|\
 sed '{ s/,/\n/g; s/[() ]//g; }' |\
 sort -u |\
 sed -e :a -e '$!N; s/\n/, /; ta; s/^, //; s/$/)/' |\
-fold -s |\
+fold -w 76 -s |\
 sed 's/\s$//; s/^/    /'
