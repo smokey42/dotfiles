@@ -21,7 +21,7 @@ try:
     import rlcompleter
 
     readline.parse_and_bind("tab: complete")
-    rlcompleter # pyflakes
+    rlcompleter  # pyflakes
 
     del rlcompleter
     del save_history

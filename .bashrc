@@ -55,3 +55,5 @@ function wiki() {
 export WORKON_HOME=~/Projekte
 mkdir -p $WORKON_HOME
 source /usr/local/bin/virtualenvwrapper.sh
+export PYTHONBREW_ROOT=/srv/pythonbrew
+[[ -s "$PYTHONBREW_ROOT/etc/bashrc" ]] && source "$PYTHONBREW_ROOT/etc/bashrc"

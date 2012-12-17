@@ -4,16 +4,16 @@
 # und deaktiviert es danach wieder. Somit verbraucht man keinen un-
 # nötigen Speicherplatz.
 
-MYSQL_LOG=$HOME/mysql/mysql.log
+MYSQL_LOG=$(awk -F= '/^log_error/ { print $2 }' /etc/mysql/my.cnf|sed "s/^\s\+//;s/\s\+$//")
 
 echo "Enabling log"
-cat <<EOF | mysql -u root
+cat <<EOF | mysql
 SET GLOBAL general_log = 'ON', general_log_file='$MYSQL_LOG';
 EOF
 
 disable_log() {
     echo "Disabling log"
-cat <<EOF | mysql -u root
+cat <<EOF | mysql
 SET GLOBAL general_log = 'OFF';
 EOF
 }

@@ -44,7 +44,9 @@ export TERM=xterm-256color
 #    alias pup="source /var/www/dev/environment/bin/activate; cd ~/puppet"
 #fi
 
-alias dev="workon core; cd src/stylightcore/src/stylight/"
+alias pup="cd ~/puppet-configs"
+alias dev="workon core; cd src/stylight/"
+alias doc="workon core; cd docs/"
 
 # Comparing dottet version numbers
 # see: http://bkhome.org/blog/?viewDetailed=02199
@@ -59,11 +61,13 @@ fi
 alias grb="git fetch && git rebase origin/master"
 alias gf="git fetch"
 alias gd="git diff"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 alias gdsm="git diff --stat origin/master"
 
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias less='/usr/bin/less -O/dev/null'
 
 alias ..="cd .."
 alias ...="..;.."
