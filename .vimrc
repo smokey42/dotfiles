@@ -80,7 +80,6 @@ Bundle 'jordansissel/vim-ackmore'
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 
-
 " Colors
 " 256 color schemes needs the ncurses-term package under Ubuntu
 Bundle 'leo256'
@@ -88,13 +87,10 @@ Bundle 'borland.vim'
 
 syntax on
 
-"let g:solarized_termcolors=256
-"let g:solarized_contrast="normal"
-"let g:solarized_visibility="normal"
-"set background=dark
-"color solarized
-
-color leo
+try
+    color leo
+catch
+endtry
 
 filetype plugin indent on
 
@@ -104,7 +100,6 @@ set shiftwidth=4
 set textwidth=80
 set smarttab
 set expandtab
-set noerrorbells
 set smartindent
 set ruler
 set relativenumber
@@ -112,7 +107,6 @@ set ttyfast
 set autoread
 set more
 set cursorline!
-set magic
 
 " Visualize tabs, trailing whitespaces and funny characters
 " http://www.reddit.com/r/programming/comments/9wlb7/proggitors_do_you_like_the_idea_of_indented/c0esam1
@@ -135,8 +129,31 @@ set statusline+=%3*%=%*                             " Set right-side status info
 set statusline+=%4*%l/%L:%v%*                       " Set <line number>/<total lines>:<column>
 set statusline+=%5*\ %*                             " Set ending space
 
+" Set 7 lines to the cursor - when moving vertically using j/k
+set scrolloff=7
 
-set novisualbell!
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set timeoutlen=500
+
+" visual bell color
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" How many tenths of a second to blink when matching brackets
+set matchtime=2
+
 
 set laststatus=2
 
@@ -146,6 +163,17 @@ if has("persistent_undo")
     set undodir=~/.vim/undodir
     set undofile
 endif
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+" Remap VIM 0 to first non-blank character
+map 0 ^
 
 " Automatically re-indent on paste
 " http://www.reddit.com/r/vim/comments/pkwkm/awesome_little_tweak_automatically_reindent_on/
@@ -185,7 +213,6 @@ autocmd BufWritePost  ~/.vimrc source ~/.vimrc
 
 " Stuff taken from
 " https://github.com/r00k/dotfiles/blob/master/vimrc
-
 command! Q q
 command! W w
 
