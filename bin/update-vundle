@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Updating vundle bundles"
+cd ~
+awk -F/ '/Bundle/ && /\// { print "cd ~/.vim/bundle/" $2 "; git pull" }' .vimrc|sed "s/'//"|bash
