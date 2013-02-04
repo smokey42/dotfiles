@@ -8,3 +8,5 @@ let python_highlight_all = 1
 nmap <F5> :wa<CR>:!/usr/bin/env python %<CR>
 nmap <F9> :wa<CR>:!/usr/bin/env python %<CR>
 nmap <f8> :wa<CR>:!flake8 %<CR>
+
+set wildignore+=*.pyc
