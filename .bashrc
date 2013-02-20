@@ -57,3 +57,13 @@ mkdir -p $WORKON_HOME
 source /usr/local/bin/virtualenvwrapper.sh
 export PYTHONBREW_ROOT=/srv/pythonbrew
 [[ -s "$PYTHONBREW_ROOT/etc/bashrc" ]] && source "$PYTHONBREW_ROOT/etc/bashrc"
+
+if [ -e $HOME/opt/scala ]; then
+    export SCALA_HOME=$HOME/opt/scala
+    PATH=$PATH:$SCALA_HOME/bin
+fi
+if [ -e $HOME/opt/idea ]; then
+    IDEA_HOME=$HOME/opt/idea
+    alias idea=$IDEA_HOME/bin/idea.sh
+    PATH=$PATH:$SCALA_HOME/bin
+fi

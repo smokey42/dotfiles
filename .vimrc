@@ -32,6 +32,7 @@ Bundle 'tpope/vim-git'
 
 " Completion
 Bundle 'davidhalter/jedi-vim'
+let g:jedi#popup_select_first = 1
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
 
@@ -56,6 +57,8 @@ let g:syntastic_auto_loc_list=0
 Bundle 'adimit/prolog.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Jinja'
+Bundle 'scala.vim'
+Bundle 'Superior-Haskell-Interaction-Mode-SHIM'
 Bundle "Smart-Tabs"
 Bundle 'chase/nginx.vim'
 Bundle 'leshill/vim-json'
@@ -68,6 +71,7 @@ Bundle 'tpope/vim-markdown'
 
 " Edit helpers.
 Bundle 'myusuf3/numbers.vim'
+Bundle 'RST-Tables-CJK'
 
 Bundle 'UltiSnips'
 Bundle 'SQLUtilities'
