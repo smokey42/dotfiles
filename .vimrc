@@ -29,6 +29,7 @@ Bundle 'Gundo'
 " Version control system helpers.
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
+Bundle 'jnwhiteh/vim-golang'
 
 " Completion
 Bundle 'davidhalter/jedi-vim'
