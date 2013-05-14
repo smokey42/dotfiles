@@ -6,5 +6,5 @@ set noexpandtab
 
 set listchars=nbsp:¬,trail:·,tab:\ \ 
 
-nmap <F9> :wa<CR>:!/usr/bin/env go build % && ./%<<CR>
+nmap <F9> :wa<CR>:!/usr/bin/env go run %<CR>
 
