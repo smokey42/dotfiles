@@ -23,6 +23,10 @@ if v:version >= 701
     Bundle 'FuzzyFinder'
 endif
 
+Bundle 'VimClojure'
+Bundle 'tslime.vim'
+Bundle 'franks42/lein-repls'
+
 " Graphing your undo tree in style
 Bundle 'Gundo'
 
