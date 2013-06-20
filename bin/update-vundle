@@ -2,4 +2,4 @@
 
 echo "Updating vundle bundles"
 cd ~
-awk -F/ '/Bundle/ && /\// { print "cd ~/.vim/bundle/" $2 "; git pull" }' .vimrc|sed "s/'//"|bash
+awk -F/ '/Bundle/ && /\// { print "cd ~/.vim/bundle/" $2 "; git pull; git submodule update --init" }' .vimrc|sed "s/'//"|bash
