@@ -68,7 +68,7 @@ Bundle "Smart-Tabs"
 Bundle 'chase/nginx.vim'
 Bundle 'leshill/vim-json'
 Bundle 'rantenki/vim-openscad'
-Bundle 'skammer/vim-css-color'
+Bundle 'ap/vim-css-color'
 Bundle 'smokey42/lighttpd-syntax'
 Bundle 'sukima/xmledit'
 Bundle 'tpope/vim-haml'
