@@ -26,6 +26,7 @@ endif
 Bundle 'VimClojure'
 Bundle 'tslime.vim'
 Bundle 'franks42/lein-repls'
+Bundle 'bling/vim-airline'
 
 " Graphing your undo tree in style
 Bundle 'Gundo'
