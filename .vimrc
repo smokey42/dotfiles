@@ -76,7 +76,9 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 
 " Edit helpers.
-Bundle 'myusuf3/numbers.vim'
+if has("nocp")
+    Bundle 'myusuf3/numbers.vim'
+endif
 Bundle 'RST-Tables-CJK'
 
 Bundle 'UltiSnips'
@@ -112,11 +114,14 @@ set smarttab
 set expandtab
 set smartindent
 set ruler
-set relativenumber
 set ttyfast
 set autoread
 set more
 set cursorline!
+
+if has("relativenumber")
+    set relativenumber
+endif
 
 " Visualize tabs, trailing whitespaces and funny characters
 " http://www.reddit.com/r/programming/comments/9wlb7/proggitors_do_you_like_the_idea_of_indented/c0esam1
