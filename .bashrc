@@ -54,7 +54,10 @@ function wiki() {
 
 export WORKON_HOME=~/Projekte
 mkdir -p $WORKON_HOME
-source /usr/local/bin/virtualenvwrapper.sh
+
+if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 export PYTHONBREW_ROOT=/srv/pythonbrew
 [[ -s "$PYTHONBREW_ROOT/etc/bashrc" ]] && source "$PYTHONBREW_ROOT/etc/bashrc"
 
@@ -67,3 +70,4 @@ if [ -e $HOME/opt/idea ]; then
     alias idea=$IDEA_HOME/bin/idea.sh
     PATH=$PATH:$SCALA_HOME/bin
 fi
+export EDITOR=vim
