@@ -51,8 +51,8 @@ Bundle 'scrooloose/nerdcommenter'
 
 " Use the |:sign| interface to mark syntax errors
 let g:syntastic_enable_signs=1
-let g:syntastic_python_checker='flake8'
-let g:syntastic_python_checker_args='--max-complexity=10'
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--max-complexity=10'
 
 " When set to 1 the error window will be automatically
 " opened when errors are detected, and closed when none
