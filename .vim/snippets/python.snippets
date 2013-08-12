@@ -3,6 +3,11 @@ import nose
 nose.runmodule(argv=[${1:'-vv', '--with-doctest'}])
 endsnippet
 
+snippet pytest "py.test testing" b
+import pytest
+pytest.main(args=[__file__, '--doctest-modules'])
+endsnippet
+
 snippet op.create_table "alembic create_table" !b
 op.create_table(
     '${1:tablename}',
