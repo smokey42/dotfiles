@@ -127,7 +127,9 @@ endif
 " http://www.reddit.com/r/programming/comments/9wlb7/proggitors_do_you_like_the_idea_of_indented/c0esam1
 " https://wincent.com/blog/making-vim-highlight-suspicious-characters
 set list
-set listchars=nbsp:¬,tab:»·,trail:·
+if has("listchars")
+    set listchars=nbsp:¬,tab:»·,trail:·
+endif
 
 hi User1 ctermfg=196 guifg=#eea040 guibg=#222222
 hi User2 ctermfg=75 guifg=#dd3333 guibg=#222222
