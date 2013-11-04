@@ -9,6 +9,8 @@ How to use it
     cd ~
     git init
     git remote add origin ssh://git@github.com/smokey42/dotfiles.git
+    # If you want to clone it privately and you are not me, use:
+    # git remote add origin https://github.com/smokey42/dotfiles.git
     git pull origin master
     git submodule update --init
     vim -c BundleInstall -c qa
