@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+git fetch
+git stash
+git pull origin master
+git submodule update --init
+git stash pop
+vim -c BundleInstall -c qa
