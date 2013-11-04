@@ -8,7 +8,7 @@ How to use it
 
     cd ~
     git init
-    git remote add origin git://github.com/smokey42/dotfiles.git
+    git remote add origin ssh://git@github.com/smokey42/dotfiles.git
     git pull origin master
     git submodule update --init
     vim -c BundleInstall -c qa
