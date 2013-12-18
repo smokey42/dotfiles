@@ -47,6 +47,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # NPM
 export PATH=/usr/local/share/npm/bin:$PATH
+if [ -d ~/bin ]; then
+    export PATH=$PATH:$HOME/bin
+fi
 
 # Don't autocorrect
 unsetopt correct_all
