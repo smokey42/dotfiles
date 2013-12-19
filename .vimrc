@@ -19,7 +19,46 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Vundle Bundle manager. Great stuff.
+Bundle 'davidhalter/jedi-vim'
+
+let s:is_enabled = 1
+
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#use_tabs_not_buffers = 0
+
+Bundle 'honza/vim-snippets'
+
+if has("lua")
+
+    Bundle 'Shougo/neosnippet'
+    Bundle 'Shougo/neocomplete'
+
+    call neocomplete#init#_variables()
+    call neocomplete#init#enable()
+
+    let g:acp_enableAtStartup = 0
+    let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#sources#syntax#min_keyword_length = 4
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+    " Enable omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+else
+    Bundle 'UltiSnips'
+    let g:UltiSnips = {}
+
+    Bundle 'ervandew/supertab'
+    let g:SuperTabDefaultCompletionType = "<C-Tab>"
+endif
+
+" Vundle "Bundle manager. Great stuff.
 " https://github.com/gmarik/vundle
 "
 " If there is a slash in the bundle-name
@@ -42,53 +81,12 @@ Bundle 'VimClojure'
 Bundle 'tslime.vim'
 Bundle 'franks42/lein-repls'
 Bundle 'bling/vim-airline'
-" Bundle 'bling/vim-bufferline'
-" Bundle 'Raimondi/delimitMate'
-
-" Graphing your undo tree in style
-Bundle 'Gundo'
-
 Bundle 'editorconfig/editorconfig-vim'
 
 " Version control system helpers.
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'jnwhiteh/vim-golang'
-
-" Completion
-
-Bundle 'davidhalter/jedi-vim'
-"let completeopt = "preview"
-let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#use_tabs_not_buffers = 0
-
-let g:EclimCompletionMethod = 'omnifunc'
-
-"Bundle 'Valloric/YouCompleteMe'
-
-let g:ycm_key_list_select_completion = ["<C-TAB>", "<Down>"]
-let g:ycm_key_list_previous_completion = ["<C-S-TAB>", "<Up>"]
-
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_semantic_triggers =  {
-  \   'c' : ['->', '.'],
-  \   'objc' : ['->', '.'],
-  \   'ocaml' : ['.', '#'],
-  \   'cpp,objcpp' : ['->', '.', '::'],
-  \   'perl' : ['->'],
-  \   'php' : ['->', '::'],
-  \   'cs,java,javascript,d,vim,perl6,scala,vb,elixir,go' : ['.'],
-  \   'python' : ['.', 'import ', 'from '],
-  \   'ruby' : ['.', '::'],
-  \   'lua' : ['.', ':'],
-  \   'erlang' : [':'],
-  \ }
-
-Bundle 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "<C-Tab>"
 
 " Other helpers
 Bundle 'scrooloose/nerdcommenter'
@@ -110,11 +108,9 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'Jinja'
 Bundle 'scala.vim'
 Bundle 'Superior-Haskell-Interaction-Mode-SHIM'
-Bundle "Smart-Tabs"
 Bundle 'chase/nginx.vim'
 Bundle 'leshill/vim-json'
 Bundle 'rantenki/vim-openscad'
-Bundle 'smokey42/lighttpd-syntax'
 Bundle 'groenewege/vim-less'
 Bundle 'ap/vim-css-color'
 Bundle 'sukima/xmledit'
@@ -123,31 +119,19 @@ Bundle 'tpope/vim-markdown'
 Bundle 'php.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'rodjek/vim-puppet'
-Bundle 'honza/vim-snippets'
-Bundle 'MarcWeber/ultisnips'
 
-"let g:UltiSnips = {}
+" Completion
 
 " Edit helpers.
 if has("nocp")
     Bundle 'myusuf3/numbers.vim'
 endif
-"Bundle 'myusuf3/numbers.vim'
+
 Bundle 'RST-Tables-CJK'
-
-Bundle 'SQLUtilities'
-
-
-" Ack search plugin
-Bundle 'mileszs/ack.vim'
-Bundle 'jordansissel/vim-ackmore'
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-
 
 " Colors
 " 256 color schemes needs the ncurses-term package under Ubuntu
 Bundle 'leo256'
-Bundle 'borland.vim'
 
 let g:HtmlDjangoUserBodyElements = []
 
