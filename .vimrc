@@ -121,6 +121,12 @@ Bundle 'sukima/xmledit'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'php.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'rodjek/vim-puppet'
+Bundle 'honza/vim-snippets'
+Bundle 'MarcWeber/ultisnips'
+
+"let g:UltiSnips = {}
 
 " Edit helpers.
 if has("nocp")
@@ -129,10 +135,8 @@ endif
 "Bundle 'myusuf3/numbers.vim'
 Bundle 'RST-Tables-CJK'
 
-Bundle 'UltiSnips'
 Bundle 'SQLUtilities'
 
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 
 " Ack search plugin
 Bundle 'mileszs/ack.vim'
