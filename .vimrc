@@ -3,7 +3,7 @@ import sys
 import vim
 import os
 
-ve_dir = vim.eval('$VIRTUAL_ENV')
+ve_dir = vim.eval('$VIRTUAL_ENV') or ''
 ve_dir in sys.path or sys.path.insert(0, ve_dir)
 activate_this = os.path.join(ve_dir, 'bin', 'activate_this.py')
 
