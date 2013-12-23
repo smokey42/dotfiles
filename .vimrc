@@ -117,7 +117,6 @@ Bundle 'sukima/xmledit'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'php.vim'
-Bundle 'godlygeek/tabular'
 Bundle 'rodjek/vim-puppet'
 
 " Completion
