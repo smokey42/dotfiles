@@ -19,6 +19,14 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" Vundle "Bundle manager. Great stuff.
+" https://github.com/gmarik/vundle
+"
+" If there is a slash in the bundle-name
+" it automatically installs from GitHub.
+"Bundle 'gmarik/vundle'
+
+
 Bundle 'davidhalter/jedi-vim'
 
 let s:is_enabled = 1
@@ -31,15 +39,35 @@ Bundle 'honza/vim-snippets'
 
 if has("lua")
 
-    Bundle 'Shougo/neosnippet'
     Bundle 'Shougo/neocomplete'
+    Bundle 'Shougo/neosnippet'
+
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+    " SuperTab like snippets behavior.
+    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+                \ "\<Plug>(neosnippet_expand_or_jump)"
+                \: pumvisible() ? "\<C-n>" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+                \ "\<Plug>(neosnippet_expand_or_jump)"
+                \: "\<TAB>"
+
+    " For snippet_complete marker.
+    if has('conceal')
+        set conceallevel=2 concealcursor=i
+    endif
+
+    let g:neosnippet#snippets_directory='~/.vim/UltiSnips'
 
     call neocomplete#init#_variables()
     call neocomplete#init#enable()
 
-    let g:acp_enableAtStartup = 0
+    "let g:acp_enableAtStartup = 0
     let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#sources#syntax#min_keyword_length = 4
+    let g:neocomplete#sources#syntax#min_keyword_length = 3
+
     inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
@@ -50,6 +78,23 @@ if has("lua")
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+    if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+    endif
+    let g:neocomplete#force_overwrite_completefunc = 1
+    let g:neocomplete#force_omni_input_patterns.c =
+                \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+    let g:neocomplete#force_omni_input_patterns.cpp =
+                \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+    let g:neocomplete#force_omni_input_patterns.objc =
+                \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+    let g:neocomplete#force_omni_input_patterns.objcpp =
+                \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
+    let g:clang_complete_auto = 0
+    let g:clang_auto_select = 0
+    let g:clang_use_library = 1
+
 else
     Bundle 'UltiSnips'
     let g:UltiSnips = {}
@@ -57,13 +102,6 @@ else
     Bundle 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = "<C-Tab>"
 endif
-
-" Vundle "Bundle manager. Great stuff.
-" https://github.com/gmarik/vundle
-"
-" If there is a slash in the bundle-name
-" it automatically installs from GitHub.
-Bundle 'gmarik/vundle'
 
 " Edit encrypted files
 Bundle 'openssl.vim'
@@ -84,6 +122,7 @@ Bundle 'bling/vim-airline'
 Bundle 'editorconfig/editorconfig-vim'
 
 " Version control system helpers.
+Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'jnwhiteh/vim-golang'
@@ -120,6 +159,8 @@ Bundle 'php.vim'
 Bundle 'rodjek/vim-puppet'
 
 " Completion
+"
+Bundle 'Rip-Rip/clang_complete'
 
 " Edit helpers.
 if has("nocp")
