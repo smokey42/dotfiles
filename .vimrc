@@ -37,7 +37,7 @@ let g:jedi#use_tabs_not_buffers = 0
 
 Bundle 'honza/vim-snippets'
 
-if has("lua")
+if has("if_lua")
 
     Bundle 'Shougo/neocomplete'
     Bundle 'Shougo/neosnippet'
