@@ -4,6 +4,12 @@ options head
     #!/usr/bin/env python
     # coding: utf-8
 
+snippet ifmain
+abbr    if __name__ ...
+options head
+    if __name__ == '__main__':
+        ${1:pass}
+
 snippet nose
 abbr    nose.runmodule(...)
 options head
