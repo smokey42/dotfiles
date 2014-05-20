@@ -275,6 +275,12 @@ map 0 ^
 " au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 " au InsertLeave * let &updatetime=updaterestore
 
+" Save buffer when hitting ESC twice
+" map <Esc><Esc> :w<CR>
+
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 " Breaking lines with \[enter] without having to go to insert mode (myself).
 nmap <leader><cr> i<cr><Esc>
 
