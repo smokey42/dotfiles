@@ -37,86 +37,27 @@ let g:jedi#use_tabs_not_buffers = 0
 
 Bundle 'honza/vim-snippets'
 
-if has("if_lua")
+Bundle 'SirVer/UltiSnips'
+let g:UltiSnipsExpandTrigger="<C-K>"
 
-    Bundle 'Shougo/neocomplete'
-    Bundle 'Shougo/neosnippet'
+Bundle 'Valloric/YouCompleteMe'
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
-    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    xmap <C-k>     <Plug>(neosnippet_expand_target)
+"Bundle 'ervandew/supertab'
 
-    " SuperTab like snippets behavior.
-    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-                \ "\<Plug>(neosnippet_expand_or_jump)"
-                \: pumvisible() ? "\<C-n>" : "\<TAB>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-                \ "\<Plug>(neosnippet_expand_or_jump)"
-                \: "\<TAB>"
+"let g:UltiSnips = {}
 
-    " For snippet_complete marker.
-    if has('conceal')
-        set conceallevel=2 concealcursor=i
-    endif
-
-    let g:neosnippet#snippets_directory='~/.vim/UltiSnips'
-
-    call neocomplete#init#_variables()
-    call neocomplete#init#enable()
-
-    "let g:acp_enableAtStartup = 0
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-    " Enable omni completion.
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-    if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
-    endif
-    let g:neocomplete#force_overwrite_completefunc = 1
-    let g:neocomplete#force_omni_input_patterns.c =
-                \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-    let g:neocomplete#force_omni_input_patterns.cpp =
-                \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-    let g:neocomplete#force_omni_input_patterns.objc =
-                \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-    let g:neocomplete#force_omni_input_patterns.objcpp =
-                \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
-    let g:clang_complete_auto = 0
-    let g:clang_auto_select = 0
-    let g:clang_use_library = 1
-
-else
-    Bundle 'UltiSnips'
-    let g:UltiSnips = {}
-
-    Bundle 'ervandew/supertab'
-    let g:SuperTabDefaultCompletionType = "<C-Tab>"
-endif
-
-" Edit encrypted files
-Bundle 'openssl.vim'
+"autocmd FileType python setlocal omnifunc=jedi#complete
 
 " Tree navigator thingie
 Bundle 'The-NERD-tree'
 
 
 if v:version >= 701
-    Bundle 'L9'
-    Bundle 'FuzzyFinder'
+    Bundle 'vim-scripts/L9'
+    Bundle 'vim-scripts/FuzzyFinder'
 endif
 
-Bundle 'VimClojure'
-Bundle 'tslime.vim'
 Bundle 'franks42/lein-repls'
 Bundle 'bling/vim-airline'
 Bundle 'editorconfig/editorconfig-vim'
@@ -133,7 +74,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 " Use the |:sign| interface to mark syntax errors
 let g:syntastic_enable_signs=1
-let g:syntastic_python_checkers=['flake8', 'pylint']
+let g:syntastic_python_checkers=['pylint', 'flake8']
 "let g:syntastic_python_checker_args='--max-complexity=10'
 
 " When set to 1 the error window will be automatically
@@ -144,34 +85,26 @@ let g:syntastic_auto_loc_list=0
 " Syntax highlighting.
 Bundle 'adimit/prolog.vim'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'Jinja'
-Bundle 'scala.vim'
-Bundle 'Superior-Haskell-Interaction-Mode-SHIM'
 Bundle 'chase/nginx.vim'
 Bundle 'leshill/vim-json'
 Bundle 'rantenki/vim-openscad'
 Bundle 'groenewege/vim-less'
 Bundle 'ap/vim-css-color'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'sukima/xmledit'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
-Bundle 'php.vim'
+Bundle 'vim-scripts/php.vim'
 Bundle 'rodjek/vim-puppet'
-
-" Completion
-"
-Bundle 'Rip-Rip/clang_complete'
 
 " Edit helpers.
 if has("nocp")
     Bundle 'myusuf3/numbers.vim'
 endif
 
-Bundle 'RST-Tables-CJK'
-
 " Colors
 " 256 color schemes needs the ncurses-term package under Ubuntu
-Bundle 'leo256'
+Bundle 'vim-scripts/leo256'
 
 let g:HtmlDjangoUserBodyElements = []
 
