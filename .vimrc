@@ -19,6 +19,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+
 " Vundle "Bundle manager. Great stuff.
 " https://github.com/gmarik/vundle
 "
@@ -26,6 +27,9 @@ call vundle#rc()
 " it automatically installs from GitHub.
 "Bundle 'gmarik/vundle'
 
+Bundle 'klen/python-mode'
+
+let g:pymode_folding = 1
 
 Bundle 'davidhalter/jedi-vim'
 
@@ -72,19 +76,61 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'scrooloose/nerdcommenter'
 
 Bundle 'scrooloose/syntastic'
+
+
+" setup syntastic
+if !exists("s:SetupSyntastic")
+    let s:pylintrc = ""
+    let s:venv = $VIRTUAL_ENV
+    function s:SetupSyntastic()
+        if s:pylintrc == "" || s:venv == ""
+            let x = fnamemodify(resolve(expand("%:p")), ":h")
+            let xl = ""
+            while 1
+                if x == xl || (s:pylintrc != "" && s:venv != "")
+                    break
+                endif
+
+                if s:pylintrc == "" && filereadable(x . "/pylintrc")
+                    let s:pylintrc = x . "/pylintrc"
+                endif
+                if s:venv == "" && xl != x && fnamemodify(x, ":t") == '.virtualenvs'
+                    let s:venv = xl
+                endif
+
+                let xl = x
+                let x = fnamemodify(x, ":h")
+            endwhile
+
+            if s:pylintrc != ""
+                let g:syntastic_python_pylint_post_args = "--rcfile " . s:pylintrc
+            endif
+
+            if s:venv != "" && s:venv != $VIRTUAL_ENV
+                let $PATH = s:venv . '/bin:' . $PATH
+            endif
+        endif
+    endfunction
+    autocmd FileType python call s:SetupSyntastic()
+endif
+" /setup syntastic
+
+
 " Use the |:sign| interface to mark syntax errors
 let g:syntastic_enable_signs=1
-let g:syntastic_python_checkers=['pylint', 'flake8']
+let g:syntastic_python_checkers=['frosted', 'pylint']
 "let g:syntastic_python_checker_args='--max-complexity=10'
 
 " When set to 1 the error window will be automatically
 " opened when errors are detected, and closed when none
 " are detected.
-let g:syntastic_auto_loc_list=0
+let g:syntastic_auto_loc_list=1
+let g:syntastic_always_populate_loc_list=1
 
 " Syntax highlighting.
-Bundle 'adimit/prolog.vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'pangloss/vim-javascript'
+let javascript_enable_domhtmlcss=1
 Bundle 'chase/nginx.vim'
 Bundle 'leshill/vim-json'
 Bundle 'rantenki/vim-openscad'
@@ -116,6 +162,8 @@ catch
 endtry
 
 filetype plugin indent on
+
+set foldlevel=10
 
 set tabstop=4
 set softtabstop=4
