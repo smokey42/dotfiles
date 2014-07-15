@@ -4,16 +4,23 @@
 # und deaktiviert es danach wieder. Somit verbraucht man keinen un-
 # nötigen Speicherplatz.
 
-MYSQL_LOG=$(awk -F= '/^log_error/ { print $2 }' /etc/mysql/my.cnf|sed "s/^\s\+//;s/\s\+$//")
+if [ ! -z $1 ]; then
+    CFG=$1
+else
+    CFG=my
+fi
+CFG_FILE="/etc/mysql/${CFG}.cnf"
+
+MYSQL_LOG=$(awk -F= '/^log_error/ { print $2 }' $CFG_FILE | sed "s/^\s\+//;s/\s\+$//")
 
 echo "Enabling log"
-cat <<EOF | mysql
+cat <<EOF | mysql --defaults-extra-file=$CFG_FILE
 SET GLOBAL general_log = 'ON', general_log_file='$MYSQL_LOG';
 EOF
 
 disable_log() {
     echo "Disabling log"
-cat <<EOF | mysql
+cat <<EOF | mysql --defaults-extra-file=$CFG_FILE
 SET GLOBAL general_log = 'OFF';
 EOF
 }
