@@ -8,8 +8,8 @@ let python_highlight_all = 1
 highlight OverLength ctermbg=black ctermfg=darkgray guibg=#592929
 match OverLength /\%81v.*/
 
-nmap <F5> :wa<CR>:!/usr/bin/env python %<CR>
-nmap <F9> :wa<CR>:!/usr/bin/env python %<CR>
-nmap <f8> :wa<CR>:!flake8 %<CR>
+nmap <F5> :SyntasticToggleMode<CR>:wa<CR>:SyntasticToggleMode<CR>:!/usr/bin/env python %<CR>
+nmap <F9> :SyntasticToggleMode<CR>:wa<CR>:SyntasticToggleMode<CR>:!/usr/bin/env python %<CR>
+nmap <f8> :SyntasticToggleMode<CR>:wa<CR>:SyntasticToggleMode<CR>:!flake8 %<CR>
 
 set wildignore+=*.pyc
