@@ -16,9 +16,9 @@ set nocompatible
 
 filetype off
 
+" Alternative: https://github.com/junegunn/vim-plug/
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
 
 " Vundle "Bundle manager. Great stuff.
 " https://github.com/gmarik/vundle
@@ -27,9 +27,18 @@ call vundle#rc()
 " it automatically installs from GitHub.
 "Bundle 'gmarik/vundle'
 
+Bundle 'EricR86/vim-firefox-autorefresh'
+
+Bundle 'smokey42/asynctastic'
+Bundle 'csv.vim'
+Bundle 'ardagnir/vimbed'
+Bundle 'codeape2/vim-multiple-monitors'
+Bundle 'kien/ctrlp.vim'
+Bundle 'wting/rust.vim'
 Bundle 'klen/python-mode'
 
 let g:pymode_folding = 1
+let g:pymode_lint_cwindow = 0
 
 Bundle 'davidhalter/jedi-vim'
 
@@ -38,6 +47,7 @@ let s:is_enabled = 1
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#show_call_signatures = 0
 
 Bundle 'honza/vim-snippets'
 
@@ -58,8 +68,7 @@ endif
 " Tree navigator thingie
 Bundle 'The-NERD-tree'
 
-
-if v:version >= 701
+if v:version >= 701 && !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so"))
     Bundle 'vim-scripts/L9'
     Bundle 'vim-scripts/FuzzyFinder'
 endif
@@ -78,6 +87,7 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'scrooloose/nerdcommenter'
 
 Bundle 'scrooloose/syntastic'
+Bundle 'burnettk/vim-angular'
 
 
 " setup syntastic
@@ -111,23 +121,34 @@ if !exists("s:SetupSyntastic")
             if s:venv != "" && s:venv != $VIRTUAL_ENV
                 let $PATH = s:venv . '/bin:' . $PATH
             endif
+            echom g:syntastic_python_pylint_post_args
         endif
     endfunction
+
     autocmd FileType python call s:SetupSyntastic()
+
 endif
 " /setup syntastic
 
 
-" Use the |:sign| interface to mark syntax errors
-let g:syntastic_enable_signs=1
-let g:syntastic_python_checkers=['frosted', 'pylint']
-"let g:syntastic_python_checker_args='--max-complexity=10'
+function! ToggleErrors()
+    let old_last_winnr = winnr('$')
+    lclose
+    if old_last_winnr == winnr('$')
+        " Nothing was closed, open syntastic error location panel
+        Errors
+    endif
+endfunction
 
+
+" Use the |:sign| interface to mark syntax errors
+let g:syntastic_enable_signs = 1
+let g:syntastic_aggregate_errors = 1
 " When set to 1 the error window will be automatically
 " opened when errors are detected, and closed when none
 " are detected.
-let g:syntastic_auto_loc_list=1
-let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=0
+let g:syntastic_always_populate_loc_list=0
 
 " Syntax highlighting.
 Bundle 'altercation/vim-colors-solarized'
@@ -170,10 +191,10 @@ set foldlevel=10
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=80
+set textwidth=79
 set smarttab
 set expandtab
-set smartindent
+set nosmartindent
 set ruler
 set ttyfast
 set autoread
@@ -222,7 +243,7 @@ set showmatch
 " How many tenths of a second to blink when matching brackets
 set matchtime=2
 
-
+" Always display the status ine
 set laststatus=2
 
 " Starting from vim 7.3 undo can be persisted across sessions
@@ -237,11 +258,16 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+
 " Remember info about open buffers on close
 set viminfo^=%
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
+
+" move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Automatically re-indent on paste
 " http://www.reddit.com/r/vim/comments/pkwkm/awesome_little_tweak_automatically_reindent_on/
@@ -275,15 +301,13 @@ cmap w!! %!sudo tee > /dev/null %
 " Save and run current file
 map <silent> <F5> <esc>:w<CR><esc>:!./%<CR>
 
-" Toggle copy and pastemode, echoing current status
-map <silent> <C-F7> :only<CR>:set invnumber invlist number?<CR>
-map <silent> <F7> :set invpaste paste?<CR>i
+map <silent> <F7> :call ToggleErrors()<CR>
 
 " vim-fugitive: git commit
 map <silent> <F12> :Gcommit<CR>
 
 " Reload changes to .vimrc automatically
-autocmd BufWritePost  ~/.vimrc source ~/.vimrc
+" autocmd BufWritePost  ~/.vimrc source ~/.vimrc
 
 " Stuff taken from
 " https://github.com/r00k/dotfiles/blob/master/vimrc
