@@ -54,7 +54,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'SirVer/UltiSnips'
 let g:UltiSnipsExpandTrigger="<C-K>"
 
-if v:version > 702
+if v:version > 702 && !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/*.so"))
     Bundle 'Valloric/YouCompleteMe'
     let g:ycm_collect_identifiers_from_comments_and_strings = 1
 endif
@@ -68,7 +68,7 @@ endif
 " Tree navigator thingie
 Bundle 'The-NERD-tree'
 
-if v:version >= 701 && !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so"))
+if v:version >= 701
     Bundle 'vim-scripts/L9'
     Bundle 'vim-scripts/FuzzyFinder'
 endif
