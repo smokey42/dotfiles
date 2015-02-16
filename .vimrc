@@ -44,8 +44,10 @@ Bundle 'honza/vim-snippets'
 Bundle 'SirVer/UltiSnips'
 let g:UltiSnipsExpandTrigger="<C-K>"
 
-Bundle 'Valloric/YouCompleteMe'
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+if v:version > 702
+    Bundle 'Valloric/YouCompleteMe'
+    let g:ycm_collect_identifiers_from_comments_and_strings = 1
+endif
 
 "Bundle 'ervandew/supertab'
 
