@@ -1,11 +1,5 @@
 #!/bin/bash
 
-alias click="cd $GOPATH/src/github.com/stylight-clickouts/clickouts"
-alias pup="cd ~/puppet-configs"
-alias dev="workon core; cd src/stylight/"
-alias doc="workon core; cd docs/"
-alias grb='git fetch && git rebase origin/master'
-
 # Comparing dottet version numbers
 # see: http://bkhome.org/blog/?viewDetailed=02199
 
