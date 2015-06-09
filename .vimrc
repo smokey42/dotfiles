@@ -29,13 +29,29 @@ call vundle#rc()
 
 Bundle 'EricR86/vim-firefox-autorefresh'
 
-Bundle 'smokey42/asynctastic'
+Bundle 'ekalinin/Dockerfile.vim'
+
+" Bundle 'smokey42/asynctastic'
 Bundle 'csv.vim'
-Bundle 'ardagnir/vimbed'
 Bundle 'codeape2/vim-multiple-monitors'
-Bundle 'kien/ctrlp.vim'
-Bundle 'wting/rust.vim'
-Bundle 'klen/python-mode'
+" Bundle 'kien/ctrlp.vim'
+" kien is inactive. ctrlpvim manages an active fork.
+Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'markwu/ctrlp-colorscheme'
+let g:ctrlp_custom_ignore = '\/build\/'
+let g:ctrlp_buffer_func = { 'enter': 'BrightHighlightOn', 'exit':  'BrightHighlightOff', }
+
+function BrightHighlightOn()
+    hi CursorLine ctermbg=blue guibg=blue
+endfunction
+
+function BrightHighlightOff()
+    hi CursorLine ctermbg=none guibg=none
+endfunction
+
+Bundle 'rust-lang/rust.vim'
+Bundle 'elixir-lang/vim-elixir'
+"Bundle 'klen/python-mode'
 
 let g:pymode_folding = 1
 let g:pymode_lint_cwindow = 0
@@ -121,7 +137,6 @@ if !exists("s:SetupSyntastic")
             if s:venv != "" && s:venv != $VIRTUAL_ENV
                 let $PATH = s:venv . '/bin:' . $PATH
             endif
-            echom g:syntastic_python_pylint_post_args
         endif
     endfunction
 
@@ -175,6 +190,8 @@ endif
 " 256 color schemes needs the ncurses-term package under Ubuntu
 Bundle 'vim-scripts/leo256'
 
+hi CtrlPNoEntries ctermbg=235 ctermfg=250 guibg=#262626 guifg=#bcbcbc cterm=NONE gui=NONE
+
 let g:HtmlDjangoUserBodyElements = []
 
 syntax on
@@ -199,7 +216,7 @@ set ruler
 set ttyfast
 set autoread
 set more
-set cursorline!
+"set cursorline!
 
 if has("relativenumber")
     set relativenumber
@@ -211,11 +228,11 @@ endif
 set list
 set listchars=nbsp:¬,tab:»·,trail:·
 
-hi User1 ctermfg=196 guifg=#eea040 guibg=#222222
-hi User2 ctermfg=75 guifg=#dd3333 guibg=#222222
-hi User3 guifg=#ff66ff guibg=#222222
-hi User4 ctermfg=239 guifg=#a0ee40 guibg=#222222
-hi User5 guifg=#eeee40 guibg=#222222
+"hi User1 ctermfg=196 guifg=#eea040 guibg=#222222
+"hi User2 ctermfg=75 guifg=#dd3333 guibg=#222222
+"hi User3 guifg=#ff66ff guibg=#222222
+"hi User4 ctermfg=239 guifg=#a0ee40 guibg=#222222
+"hi User5 guifg=#eeee40 guibg=#222222
 
 
 " Set 7 lines to the cursor - when moving vertically using j/k
