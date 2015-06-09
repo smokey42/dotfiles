@@ -1,14 +1,40 @@
 #!/bin/bash
 #
-# Kombiniere alle Imports in Python-Programmen
+# Combine imports in Python programs.
 #
-# Benutzung innerhalb von vim:
+# How to use from within vim:
 #
-# Import im visual-mode markieren, und durch !combineimports filtern
+# Mark all imports in visual-mode, filter through !combineimports
 #
-egrep -v "<<<<<|>>>>>|====="|\
-sed '{ s/,/\n/g; s/[() ]//g; }' |\
+# Example:
+#
+# from foo import blah as _blah, foo2, bar
+# :'<,'>!combineimports
+#
+# Will result in:
+#
+# from foo import (
+#       bar, blah as _blah, foo2)
+#
+body() {
+    # Only emit the body to stdout
+    #
+    # See: http://unix.stackexchange.com/q/11856/11108
+    #
+    # Take the first line of stdin and emit it immediately on stdout
+    # (essentially bypassing all the upcoming pipes) then send the
+    # rest of the input to stdout.
+    # To be used in a pipeline, like for example:
+    #
+    # $ cat report.csv | body sort
+    IFS= read -r header
+    printf '%s\n' "$header"
+    "$@"
+}
+
+sed '{ /<<<<<\|>>>>>\|=====/d; s/\s\+as\s\+/%as%/g; s/,/\n/g; s/[() ]//g; }' |\
 sort -u |\
 sed -e :a -e '$!N; s/\n/, /; ta; s/^, //; s/$/)/' |\
 fold -w 75 -s |\
-sed 's/\s$//; s/^/    /'
+sed 's/%as%/ as /g; s/\s$//; s/^/    /'
+
