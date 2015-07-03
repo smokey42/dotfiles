@@ -8,16 +8,38 @@
     branch = auto
 
 [alias]
-    st = status
+    st = status -sb
     ci = commit
     br = branch
     co = checkout
     df = diff
     lg = log -p
     lgv = !git log -p -40 | vim - -R -c 'set foldmethod=syntax'
+    am = commit --amend -n
+    ca = commit --amend
+    cl = clone
+    cp = cherry-pick
+    d = diff --stat
+    dc = diff --stat --cached
+    dfc = diff --cached
+    diff = diff --word-diff
+    p = pull --ff-only
+    pr = pull --rebase
+    rb = rebase
+    stom = diff origin/master --stat
+    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    sup = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+    track = !git push origin `git symbolic-ref --short HEAD`:`git symbolic-ref --short HEAD`
+    wip = !git add -u && git commit -m "WIP"
+    fuck = reset HEAD --hard
+    yolo = push --force
+    conflicts = !git ls-files -u | cut -f 2 | sort -u
+    poppers = !"git log -M -C --format=\"format:%aN\" --grep \"Revert\" | sort | uniq -c | sort -n"
 
 [status]
     ignoreSubmodules = dirty
 
 [diff]
     ignoreSubmodules = dirty
+
