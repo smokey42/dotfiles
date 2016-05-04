@@ -27,15 +27,6 @@ call vundle#rc()
 " it automatically installs from GitHub.
 "Bundle 'gmarik/vundle'
 
-Bundle 'EricR86/vim-firefox-autorefresh'
-
-Bundle 'ekalinin/Dockerfile.vim'
-
-" Bundle 'smokey42/asynctastic'
-Bundle 'csv.vim'
-Bundle 'codeape2/vim-multiple-monitors'
-" Bundle 'kien/ctrlp.vim'
-" kien is inactive. ctrlpvim manages an active fork.
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'markwu/ctrlp-colorscheme'
 let g:ctrlp_custom_ignore = '\/build\/'
