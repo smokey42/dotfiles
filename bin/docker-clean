@@ -1,0 +1,5 @@
+#!/bin/bash
+docker=`which docker`
+
+$docker ps -a | awk '/weeks ago/ { print $1 }'|xargs --no-run-if-empty $docker rm
+
