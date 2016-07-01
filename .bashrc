@@ -14,3 +14,4 @@ if [ -f ~/.aws/credentials ]; then
     export AWS_SECRET_ACCESS_KEY=$(head -3 ~/.aws/credentials| awk '/aws_secret_access_key/ { print $NF }')
 fi
 
+source ~/.profile
