@@ -27,8 +27,8 @@ call vundle#rc()
 " it automatically installs from GitHub.
 "Bundle 'gmarik/vundle'
 
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'markwu/ctrlp-colorscheme'
+" Bundle 'ctrlpvim/ctrlp.vim'
+" Bundle 'markwu/ctrlp-colorscheme'
 let g:ctrlp_custom_ignore = '\/build\/'
 let g:ctrlp_buffer_func = { 'enter': 'BrightHighlightOn', 'exit':  'BrightHighlightOff', }
 
@@ -41,13 +41,15 @@ function BrightHighlightOff()
 endfunction
 
 Bundle 'rust-lang/rust.vim'
-Bundle 'elixir-lang/vim-elixir'
+"let g:rustfmt_autosave = 1
+
+" Bundle 'elixir-lang/vim-elixir'
 "Bundle 'klen/python-mode'
 
 let g:pymode_folding = 1
 let g:pymode_lint_cwindow = 0
 
-Bundle 'davidhalter/jedi-vim'
+" Bundle 'davidhalter/jedi-vim'
 
 let s:is_enabled = 1
 
@@ -73,14 +75,14 @@ endif
 "autocmd FileType python setlocal omnifunc=jedi#complete
 
 " Tree navigator thingie
-Bundle 'The-NERD-tree'
+" Bundle 'The-NERD-tree'
 
 if v:version >= 701
     Bundle 'vim-scripts/L9'
     Bundle 'vim-scripts/FuzzyFinder'
 endif
 
-Bundle 'franks42/lein-repls'
+" Bundle 'franks42/lein-repls'
 Bundle 'bling/vim-airline'
 Bundle 'editorconfig/editorconfig-vim'
 
@@ -88,54 +90,12 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
-Bundle 'jnwhiteh/vim-golang'
+" Bundle 'jnwhiteh/vim-golang'
 
 " Other helpers
 Bundle 'scrooloose/nerdcommenter'
 
 Bundle 'scrooloose/syntastic'
-Bundle 'burnettk/vim-angular'
-
-
-" setup syntastic
-if !exists("s:SetupSyntastic")
-    let s:pylintrc = ""
-    let s:venv = $VIRTUAL_ENV
-    function s:SetupSyntastic()
-        if s:pylintrc == "" || s:venv == ""
-            let x = fnamemodify(resolve(expand("%:p")), ":h")
-            let xl = ""
-            while 1
-                if x == xl || (s:pylintrc != "" && s:venv != "")
-                    break
-                endif
-
-                if s:pylintrc == "" && filereadable(x . "/pylintrc")
-                    let s:pylintrc = x . "/pylintrc"
-                endif
-                if s:venv == "" && xl != x && fnamemodify(x, ":t") == '.virtualenvs'
-                    let s:venv = xl
-                endif
-
-                let xl = x
-                let x = fnamemodify(x, ":h")
-            endwhile
-
-            if s:pylintrc != ""
-                let g:syntastic_python_pylint_post_args = "--rcfile " . s:pylintrc
-            endif
-
-            if s:venv != "" && s:venv != $VIRTUAL_ENV
-                let $PATH = s:venv . '/bin:' . $PATH
-            endif
-        endif
-    endfunction
-
-    autocmd FileType python call s:SetupSyntastic()
-
-endif
-" /setup syntastic
-
 
 function! ToggleErrors()
     let old_last_winnr = winnr('$')
@@ -160,17 +120,10 @@ let g:syntastic_always_populate_loc_list=0
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
 let javascript_enable_domhtmlcss=1
-Bundle 'chase/nginx.vim'
 Bundle 'leshill/vim-json'
-Bundle 'rantenki/vim-openscad'
-Bundle 'groenewege/vim-less'
 Bundle 'ap/vim-css-color'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'sukima/xmledit'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
-Bundle 'vim-scripts/php.vim'
-Bundle 'rodjek/vim-puppet'
 
 " Edit helpers.
 if has("nocp")
