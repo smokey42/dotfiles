@@ -15,3 +15,5 @@ if [ -f ~/.aws/credentials ]; then
 fi
 
 source ~/.profile
+export ANSIBLE_NOCOWS=1
+

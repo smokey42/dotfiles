@@ -31,13 +31,18 @@ if [ -d $GOPATH ]; then
     mkdir -p $GOPATH
 fi
 
+if [ -d $HOME/.local/bin ]; then
+    export PATH=$PATH:$HOME/.local/bin
+fi
+
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 
 export WORKON_HOME=~/Projekte
 mkdir -p $WORKON_HOME
-if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
+WRAPPER=`which virtualenvwrapper.sh`
+if [ -e $WRAPPER ]; then
+    source $WRAPPER
 fi
 
 # enable programmable completion features (you don't need to enable
