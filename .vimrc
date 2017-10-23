@@ -30,6 +30,8 @@ if v:version >= 701
 endif
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'bling/vim-airline'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'cespare/vim-toml'
 Plugin 'ap/vim-css-color'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'honza/vim-snippets'

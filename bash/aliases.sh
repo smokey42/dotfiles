@@ -3,6 +3,10 @@
 # Comparing dottet version numbers
 # see: http://bkhome.org/blog/?viewDetailed=02199
 
+
+# Remote cherry pick
+# git --git-dir=../<some_other_repo>/.git format-patch -k -1 --stdout <commit SHA> | git am -3 -k
+
 alias gd="git diff"
 alias gdsm="git diff --stat origin/master"
 alias gst="git status"

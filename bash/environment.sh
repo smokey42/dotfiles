@@ -51,3 +51,4 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+export AWS_DEFAULT_OUTPUT="text"
